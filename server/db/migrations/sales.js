@@ -3,8 +3,8 @@ export const up = (knex) => {
     table.increments().primary()
     table.decimal('total').notNullable()
     table.datetime('date_order').notNullable()
+    table.integer('rate').notNullable()
     table.integer('employee_id').references('employees.id')
-    table.integer('rate_id').references('rates.id')
   })
 }
 
