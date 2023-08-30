@@ -1,8 +1,16 @@
+import Footer from "./Footer";
+import Header from "./Header";
+import Title from "./Title";
+
 function App() {
   return (
-    <div>
-      <h1>React and Knex Boilerplate</h1>
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <Title>Sales Dashboard</Title>
+      </div>
+      <Footer />
+    </>
   )
 }
 
