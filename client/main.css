@@ -1,4 +1,103 @@
+:root {
+  --light-blue: #339CFF;
+  --dark-blue: #0B3B60;
+  --white: #FFFFFF;
+  --grey: #6B6E71;
+  --light-grey: #E7EBEF;
+  --primary-font: 'Public Sans', sans-serif;
+  --secundary-font: 'Archivo', sans-serif;
+}
+
 body {
-  background-color: #faf8f1;
-  color: #0a1520;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2em 4em;
+}
+
+.header-logo {
+  max-width: 160px;
+  max-height: 85px;
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: .1;
+}
+
+.link-header {
+  color: var(--dark-blue);
+  font-weight: 700;
+}
+
+.container {
+  background-color: var(--light-grey);
+  margin: 4em;
+  border-radius: 16px;
+  padding: 2em;
+  height: 100%;
+}
+
+.title-span {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+}
+
+.icon-assessment {
+  background-image: url('../assets/assessment.png');
+}
+
+.icon-appointment {
+  background-image: url('../assets/appointment.png');
+}
+
+.icon-chart {
+  background-image: url('../assets/chart.png');
+}
+
+.title {
+  color: var(--light-blue);
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+}
+
+.footer {
+  height: 100%;
+  color: white;
+  padding: 1em;
+  background-color: var(--dark-blue);
+  text-align: center;
+}
+
+.footer-ul {
+  display: flex;
+  justify-content: space-around;
+  width: 10%;
+  margin: 1em auto;
+}
+
+.footer-li {
+  list-style-type: none;
 }
