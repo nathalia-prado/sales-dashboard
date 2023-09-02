@@ -35,19 +35,21 @@ function SalesTable({sales} : {sales: Sale[] | null}) {
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 700}} aria-label="customized-table">
           <TableHead>
+          <TableRow>
             <StyledTableCell>Date</StyledTableCell>
             <StyledTableCell>Time</StyledTableCell>
             <StyledTableCell>Employee</StyledTableCell>
             <StyledTableCell>Total Sale</StyledTableCell>
+          </TableRow> 
           </TableHead>
           <TableBody>
               {sales?.map(sale => {
                 return (
                   <StyleRow key={sale.id}>  
-                    <StyledTableCell component={'th'} scope='row'>{new Date(sale.dateOrder).toLocaleDateString()}</StyledTableCell>
+                    <StyledTableCell>{new Date(sale.dateOrder).toLocaleDateString('en-NZ')}</StyledTableCell>
                     <StyledTableCell>{new Date(sale.dateOrder).toLocaleTimeString()}</StyledTableCell>
                     <StyledTableCell>{sale.employeeName}</StyledTableCell>
-                    <StyledTableCell>{sale.total}</StyledTableCell>
+                    <StyledTableCell>${sale.total}</StyledTableCell>
                   </StyleRow>
                 )
               }) }

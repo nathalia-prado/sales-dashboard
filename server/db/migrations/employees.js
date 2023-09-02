@@ -3,6 +3,7 @@ export const up = (knex) => {
     table.increments().primary()
     table.string('name').notNullable()
     table.string('email').notNullable()
+    table.string('photo').notNullable()
     table.string('job_title').notNullable()
     table.date('date_hired').notNullable()
   })
