@@ -62,16 +62,19 @@ code {
   height: 25px;
 }
 
-.icon-assessment {
-  background-image: url('../assets/assessment.png');
+.icon-rate {
+  background-image: url('../assets/rate.png');
+  margin-right: 8px;
 }
 
-.icon-appointment {
-  background-image: url('../assets/appointment.png');
+.icon-table {
+  background-image: url('../assets/table.png');
+  margin-right: 8px;
 }
 
 .icon-chart {
   background-image: url('../assets/chart.png');
+  margin-right: 8px;
 }
 
 .title {
@@ -100,4 +103,73 @@ code {
 
 .footer-li {
   list-style-type: none;
+}
+
+.chart-section {
+  background-color: var(--white);
+  border-radius: 16px;
+}
+
+.rate-card-div {
+  flex: 40%;
+  max-width: 100%;
+  background-color: var(--white);
+  padding: 1em;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  color: var(--grey);
+  margin: 1em 2em 1em;
+}
+
+.rate-card-ul {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  padding: 0;
+}
+
+.rate-card-li {
+  list-style-type: none;
+}
+
+.rate-card-li-name {
+  flex-grow: 1;
+}
+
+.rate-card-p {
+  font-weight: 700;
+}
+
+.rate-card-img {
+  border-radius: 100%;
+  width: 64px;
+  object-fit: cover;
+  height: 64px;
+  border: 2px solid var(--light-blue);
+  margin-right: 1em;
+}
+
+.rate-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.subtitle-h3 {
+  color: var(--dark-blue);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.button {
+  background-color: var(--dark-blue);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: var(--white);
+  border: none;
+  margin-top: 1em;
+  font-weight: 700;
+  line-height: 19px;
 }

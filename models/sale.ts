@@ -5,3 +5,6 @@ export interface Sale {
   rate: number
   dateOrder: number
 }
+export interface NewSale extends Sale {
+  employeeId: number
+}
