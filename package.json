@@ -37,7 +37,9 @@
     "@mui/material": "^5.11.11",
     "express": "^4.17.2",
     "knex": "^2.5.1",
-    "recharts": "^2.8.0"
+    "recharts": "^2.8.0",
+    "sqlite3": "^5.1.6",
+    "superagent": "7.1.1"
   },
   "devDependencies": {
     "@devacademy/eslint-config": "^1.9.1",
@@ -62,8 +64,6 @@
     "react": "^18.0.2",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.2",
-    "sqlite3": "^5.1.6",
-    "superagent": "7.1.1",
     "supertest": "^6.2.2",
     "tsx": "^3.12.7",
     "vite": "^4.4.9",
