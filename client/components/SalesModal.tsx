@@ -93,7 +93,7 @@ function SalesModal({options, open, handleLoading, handleClose} : {options: Opti
                         </div>
                         <div className="sales-modal-container-rate">
                             <h3 className="subtitle-h3">Customer Satisfaction</h3>
-                            <Rating name="simple-controlled" value={newSale.rate} onChange={(event, newValue) => handleRateChange(newValue || 0)} />
+                            <Rating name="simple-controlled" value={newSale.rate} onChange={(event, newValue) => handleRateChange(newValue || 0)} precision={0.5} />
                         </div>
                         <button className="button sales-modal-button">Save</button>
                     </form>
