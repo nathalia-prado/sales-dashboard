@@ -63,7 +63,7 @@ code {
 }
 
 .icon-rate {
-  background-image: url('../assets/rate.png');
+  background-image: url('../assets/star.png');
   margin-right: 8px;
 }
 
@@ -172,4 +172,59 @@ code {
   margin-top: 1em;
   font-weight: 700;
   line-height: 19px;
+}
+
+.button:hover {
+  cursor:pointer;
+}
+
+.sales-modal-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30vw;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: var(--white);
+  border: none;
+  border-radius: 16px;
+  padding: 1em 5em;
+}
+
+.sales-modal-container {
+  text-align: left;
+}
+
+.sales-modal-container-rate {
+  text-align: center;
+}
+
+.sales-modal-button {
+  width: 50%;
+  display: block;
+  margin: 0 auto;
+}
+
+.input-container {
+  width: 100%;
+}
+
+.input-label {
+  display: block;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: var(--dark-blue)
+}
+
+.input {
+  background: var(--white);
+  margin: 1em 0;
+  box-sizing: border-box;
+  box-shadow: 2px 2px 6px rgba(0,0,0, 0.25);
+  border-radius: 8px;
+  border: none;
+  width: 100%;
+  padding: 16px;
 }

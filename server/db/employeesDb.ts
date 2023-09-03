@@ -9,6 +9,6 @@ export function getAllEmployees(): Promise<EmployeeData[]> {
 
 export function addSale(saleData: NewSale): Promise<Sale[]> {
   return db('sales')
-    .insert({total: saleData.total, employee_id: saleData.employeeId, rate: saleData.rate, date_order: new Date().getTime()})
+    .insert({total: saleData.total, employee_id: saleData.employeeId, rate: saleData.rate, date_order: saleData.dateOrder})
     .returning(['id','total','employee_id as employeeId', 'rate', 'date_order as dateOrder'])
 }
