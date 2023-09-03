@@ -30,10 +30,38 @@ export const seed = (knex) => {
     },
     {
       id: 5,
+      total: 600.00,
+      employee_id: 3,
+      rate: 3,
+      date_order: new Date(2023, 7, 18, 7, 10, 0)
+    },
+    {
+      id: 6,
+      total: 700.00,
+      employee_id: 3,
+      rate: 1,
+      date_order: new Date(2023, 7, 17, 6, 10, 0)
+    },
+    {
+      id: 7,
       total: 920.00,
       employee_id: 4,
       rate: 2,
       date_order: new Date(2023, 7, 25, 9, 23, 0)
+    },
+    {
+      id: 8,
+      total: 650.00,
+      employee_id: 4,
+      rate: 3,
+      date_order: new Date(2023, 7, 24, 8, 23, 0)
+    },
+    {
+      id: 9,
+      total: 356.00,
+      employee_id: 4,
+      rate: 4,
+      date_order: new Date(2023, 7, 23, 5, 23, 0)
     },
   ])
 }

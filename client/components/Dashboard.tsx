@@ -10,22 +10,24 @@ import Chart from "./Chart";
 import { EmployeeData } from "../../models/employee";
 import { getAllEmployees } from "../apis/Employees";
 import Rate from "./Rate";
+import SalesModal from "./SalesModal";
 
-function App() {
+function Dashboard() {
 
   const [sales, setSales] = useState<Sale[] | null>(null)
   const [employees, setEmployees] = useState<EmployeeData[] | null>(null)
+  const [open, setOpen] = useState(false)
+
+
+  async function fetchSalesAndEmployees() {
+    const salesData = await getAllSales()
+    setSales(salesData)
+
+    const employeesData = await getAllEmployees()
+    setEmployees(employeesData)
+  }
 
   useEffect(() => {
-
-    async function fetchSalesAndEmployees() {
-      const salesData = await getAllSales()
-      setSales(salesData)
-
-      const employeesData = await getAllEmployees()
-      setEmployees(employeesData)
-    }
-
     try {
       fetchSalesAndEmployees()
     } catch (error) {
@@ -33,12 +35,26 @@ function App() {
     }
   }, [])
 
+  const handleOpen = () => {
+    setOpen(true)
+  }
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  const handleLoadingAfterSaving = () => {
+    setOpen(false)
+    fetchSalesAndEmployees()
+  }
+
   return (
     <>
       <Header />
       <div className="container">
-        <Title>Sales Dashboard</Title>
-        <button className="button">Add Sale</button>
+        <Title>Sales Performance Dashboard</Title>
+        <button onClick={handleOpen} className="button">Add Sale</button>
+        <SalesModal options={employees?.map(employee => ({label: employee.name, value: employee.id}))} open={open} handleClose={handleClose} handleLoading={handleLoadingAfterSaving} />
         <Title className="icon-table">Sales Table</Title>
         <SalesTable sales={sales} />
         <Title className="icon-chart">Sales Chart</Title>
@@ -51,4 +67,4 @@ function App() {
   )
 }
 
-export default App
+export default Dashboard

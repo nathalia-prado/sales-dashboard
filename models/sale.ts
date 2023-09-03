@@ -1,7 +1,7 @@
 export interface Sale {
-  id: number
+  id?: number
   total: number
-  employeeName: string
+  employeeName?: string
   rate: number
   dateOrder: number
 }
