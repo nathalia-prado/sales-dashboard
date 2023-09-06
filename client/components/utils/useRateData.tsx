@@ -16,7 +16,7 @@ const useRateData = ({ sales, employees} : {sales: Sale[] | null, employees: Emp
             return { 
                 employeeName: employee.name,
                 employeePhoto: employee.photo,
-                averageRate: employeeRates.reduce((accumulator, currentValue) => accumulator + currentValue) / employeeRates.length
+                averageRate: employeeRates.reduce((accumulator, currentValue) => accumulator + currentValue, 0) / employeeRates.length
             }
         })
     }
