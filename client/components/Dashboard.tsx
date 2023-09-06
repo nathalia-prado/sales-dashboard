@@ -61,7 +61,7 @@ function Dashboard() {
     <>
       <Header />
       <div className="container">
-        <Title>Sales Performance Dashboard</Title>
+        <h1 className="title">Sales Performance Dashboard</h1>
         <button onClick={handleOpen} className="button">Add Sale</button>
         <SalesModal options={employees?.map(employee => ({label: employee.name, value: employee.id}))} open={open} handleClose={handleClose} handleLoading={handleLoadingAfterSaving} />
         <Title className="icon-table">Sales Table</Title>

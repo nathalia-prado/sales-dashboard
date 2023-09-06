@@ -75,9 +75,7 @@ function SalesModal({options, open, handleLoading, handleClose} : {options: Opti
     return (
         <Modal
             open={open}
-            onClose={handleClose}
-            aria-labelledby="modal-modal-title"
-            aria-describedby="modal-modal-description">
+            onClose={handleClose}>
                 <Box className="sales-modal-box">
                     <Title>New Sale:</Title>
                     {errorMessage && (
