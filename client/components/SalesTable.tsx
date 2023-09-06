@@ -6,9 +6,32 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import { Sale } from '../../models/sale';
-import { styled } from '@mui/material';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, styled } from '@mui/material';
+import { useState } from 'react';
 
-function SalesTable({sales} : {sales: Sale[] | null}) {
+function SalesTable({sales, handleDelete} : {sales: Sale[] | null,  handleDelete: (id: number) => void}) {
+
+  const [open, setOpen] = useState(false);
+  const [selectedSale, setSelectedSale] = useState<Sale | null>();
+
+  const handleClickOpen = (sale: Sale | null) => {
+    if (sale) {
+      setSelectedSale(sale)
+      setOpen(true)
+    }
+  };
+
+  const handleClose = () => {
+    setOpen(false)
+    setSelectedSale(null)
+  }
+
+  const handleDeleteClick = () => {
+    if (selectedSale && selectedSale.id) {
+      handleDelete(selectedSale.id)
+    }
+    handleClose()
+  };
 
   const StyledTableCell = styled(TableCell)(() => ({
       [`&.${tableCellClasses.head}`]: {
@@ -45,7 +68,7 @@ function SalesTable({sales} : {sales: Sale[] | null}) {
           <TableBody>
               {sales?.map(sale => {
                 return (
-                  <StyleRow key={sale.id}>  
+                  <StyleRow key={sale.id} onClick={() => handleClickOpen(sale)}>  
                     <StyledTableCell>{new Date(sale.dateOrder).toLocaleDateString('en-NZ')}</StyledTableCell>
                     <StyledTableCell>{new Date(sale.dateOrder).toLocaleTimeString()}</StyledTableCell>
                     <StyledTableCell>{sale.employeeName}</StyledTableCell>
@@ -56,6 +79,25 @@ function SalesTable({sales} : {sales: Sale[] | null}) {
           </TableBody>
         </Table>
       </TableContainer>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {`Are you sure you want to delete this sale?`}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            {selectedSale ? `Please, confirm if you are sure you want to delete the ${selectedSale?.employeeName}'s sale total value of ${selectedSale?.total}!` : 'Loading...'}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} autoFocus>Cancel</Button>
+          <Button onClick={handleDeleteClick}>Confirm</Button>
+        </DialogActions>
+      </Dialog>
       </>
     )
   }

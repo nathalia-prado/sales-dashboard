@@ -8,3 +8,7 @@ export function getAllSales(): Promise<Sale[]> {
         .select(['sales.id as id', 'total','employees.name as employeeName', 'rate', 'date_order as dateOrder'])
         .orderBy('date_order', 'desc')
 }
+
+export function deleteSale(id: number) {
+  return db('sales').delete().where('id', id)
+}

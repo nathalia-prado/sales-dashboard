@@ -8,5 +8,11 @@ router.get('/', async (req, res) => {
     res.json(sales)
 })
 
+router.delete('/:id', async (req, res) => {
+    const id = Number(req.params.id)
+    await db.deleteSale(id)
+    res.sendStatus(200)
+})
+
 export default router
 

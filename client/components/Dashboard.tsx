@@ -4,7 +4,7 @@ import Footer from "./Footer";
 import Header from "./Header";
 import SalesTable from "./SalesTable";
 import Title from "./Title";
-import { getAllSales } from "../apis/Sales";
+import { deleteSale, getAllSales } from "../apis/Sales";
 import { Sale } from "../../models/sale";
 import Chart from "./Chart";
 import { EmployeeData } from "../../models/employee";
@@ -25,6 +25,15 @@ function Dashboard() {
 
     const employeesData = await getAllEmployees()
     setEmployees(employeesData)
+  }
+
+  async function handleDelete(saleId: number) {
+    try {
+      await deleteSale(saleId)
+      sales && setSales(sales.filter(sale => sale.id !== saleId))
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   useEffect(() => {
@@ -56,7 +65,7 @@ function Dashboard() {
         <button onClick={handleOpen} className="button">Add Sale</button>
         <SalesModal options={employees?.map(employee => ({label: employee.name, value: employee.id}))} open={open} handleClose={handleClose} handleLoading={handleLoadingAfterSaving} />
         <Title className="icon-table">Sales Table</Title>
-        <SalesTable sales={sales} />
+        <SalesTable sales={sales} handleDelete={handleDelete}/>
         <Title className="icon-chart">Sales Chart</Title>
         <Chart sales={sales} employees={employees} />
         <Title className="icon-rate">Customer Satisfaction</Title>
