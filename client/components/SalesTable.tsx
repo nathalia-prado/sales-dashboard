@@ -63,16 +63,18 @@ function SalesTable({sales, handleDelete} : {sales: Sale[] | null,  handleDelete
             <StyledTableCell>Time</StyledTableCell>
             <StyledTableCell>Employee</StyledTableCell>
             <StyledTableCell>Total Sale</StyledTableCell>
+            <StyledTableCell width="10%">Actions</StyledTableCell>
           </TableRow> 
           </TableHead>
           <TableBody>
               {sales?.map(sale => {
                 return (
-                  <StyleRow key={sale.id} onClick={() => handleClickOpen(sale)}>  
+                  <StyleRow key={sale.id}>  
                     <StyledTableCell>{new Date(sale.dateOrder).toLocaleDateString('en-NZ')}</StyledTableCell>
                     <StyledTableCell>{new Date(sale.dateOrder).toLocaleTimeString()}</StyledTableCell>
                     <StyledTableCell>{sale.employeeName}</StyledTableCell>
                     <StyledTableCell>${sale.total}</StyledTableCell>
+                    <StyledTableCell className='sales-table-actions' width="10%" onClick={() => handleClickOpen(sale)}>Delete</StyledTableCell>
                   </StyleRow>
                 )
               }) }

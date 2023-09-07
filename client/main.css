@@ -230,5 +230,13 @@ code {
 }
 
 .MuiRating-visuallyHidden {
-  color: grey;
+  color: var(--grey);
+}
+
+.sales-table-actions {
+  cursor: pointer;
+}
+
+.sales-table-actions:hover {
+  color: var(--dark-blue);
 }
