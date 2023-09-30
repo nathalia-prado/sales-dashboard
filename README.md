@@ -4,9 +4,11 @@ Employee Performance Bonus & Customer Experience Software
 
 ## Includes
 - React
-- API
+- Express / API
+- SQLite
 - Knex
 - Material UI
+- Vitest
 
 ## Setup
 ```sh
